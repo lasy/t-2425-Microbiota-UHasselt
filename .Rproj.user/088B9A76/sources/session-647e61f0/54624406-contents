@@ -1,0 +1,71 @@
+---
+title: "Purgatory"
+format: html
+editor: visual
+---
+
+
+
+### Vaginal microbiota dataset: Valencia
+
+Valencia is a vaginal microbiota "classifier" (more on this later) developed by Michael France (Ravel's lab).
+
+![](images/Valencia.png){fig-align="center" width="400px"} 
+
+:warning: Add reference 
+
+https://github.com/ravel-lab/VALENCIA
+
+https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-020-00934-6
+
+
+France, M.T., Ma, B., Gajer, P. et al. VALENCIA: a nearest centroid classification method for vaginal microbial communities based on composition. Microbiome 8, 166 (2020). https://doi.org/10.1186/s40168-020-00934-6
+
+. . .
+
+To build their classifier, they also curated a large dataset of microbiota samples from several cohorts.
+
+This data is available on Valencia's GitHub repository as `csv` files.
+
+:warning: Add link
+
+```{r}
+#| echo: true
+#| eval: false
+
+valencia_counts_raw <- read_csv(file = "https://raw.githubusercontent.com/ravel-lab/VALENCIA/refs/heads/master/Publication_materials/Data_and_metadata/all_samples_taxonomic_composition_data.csv")
+valencia_metadata_raw <- read_csv(file = "https://raw.githubusercontent.com/ravel-lab/VALENCIA/refs/heads/master/Publication_materials/Data_and_metadata/all_samples_metadata.csv")
+
+```
+
+After some formating (creation of a `SummarizedExperiment` object), we can use this data.
+
+```{r}
+#| echo: true
+
+# SummarizedExperiment object
+
+```
+
+Reference & link
+
+Load the data
+
+Properties of the data
+
+Quick look at the data
+
+
+## 
+
+[reference](https://quarto.org/docs/reference/formats/presentations/revealjs.html)
+
+https://quarto.org/docs/presentations/revealjs/
+
+https://quarto.org/docs/presentations/revealjs/presenting.html
+
+https://prerelease.quarto.org/docs/presentations/revealjs/advanced.html
+
+https://github.com/quarto-dev/quarto-web/blob/main/docs/presentations/revealjs/demo/index.qmd https://github.com/wilkelab/SDS375
+
+https://meghan.rbind.io/blog/2022-07-12-making-slides-in-quarto-with-revealjs/#section-header
