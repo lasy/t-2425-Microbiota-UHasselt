@@ -50,7 +50,7 @@ format:
 execute:
   echo: false
   warning: false
-  cache: refresh # true refresh
+  cache: true # true refresh
 from: markdown+emoji
 engine: knitr
 knitr:
