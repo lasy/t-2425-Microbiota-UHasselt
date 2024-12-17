@@ -10,8 +10,6 @@ This presentation will explain what topic models are, how they can be applied to
 
  
 
- 
-
 ## Outline
 
 **Introduction**

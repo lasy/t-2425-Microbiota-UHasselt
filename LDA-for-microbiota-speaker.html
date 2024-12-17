@@ -493,10 +493,11 @@ Laura Symul <a href="https://orcid.org/0000-0001-9286-0590" class="quarto-title-
 <span id="cb1-19"><a href="#cb1-19"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>You can find the source for this slidedeck on GitHub: <a href="link">lasy/LDA-for-microbiota</a> <span class="emoji" data-emoji="warning">⚠️</span></p>
+<p>You can find the source for this slidedeck on GitHub: <a href="github.com/lasy/t-2425-Microbiota-UHasselt">lasy/t-2425-Microbiota-UHasselt</a></p>
 <p>Data used here are publicly available and linked in the slides.</p>
 <h4 id="feedback">Feedback</h4>
 <p><span class="emoji" data-emoji="pray">🙏</span> Please give me feedback or report mistakes/typos (at the end of the workshop in person, or on GitHub using <em>Issues</em>)</p>
+<h4 id="cc-by-sa">CC-BY-SA</h4>
 </div>
 </section></section>
 <section>
@@ -602,7 +603,7 @@ Laura Symul <a href="https://orcid.org/0000-0001-9286-0590" class="quarto-title-
 </section>
 <section id="vaginal-microbiota-dataset-isala-1" class="slide level3">
 <h3>Vaginal microbiota dataset: ISALA</h3>
-<p>We take a random subset of 200 samples (out of ) to make it easier to work with.</p>
+<p>We take a random subset of 200 samples (out of 3043) to make it easier to work with.</p>
 <div class="fragment">
 <p>We then also filter out “rare taxa”:</p>
 <div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-10_461f04b342837ec798a44194420ada9d">
@@ -974,12 +975,28 @@ Laura Symul <a href="https://orcid.org/0000-0001-9286-0590" class="quarto-title-
 </div>
 </section>
 
-<section id="advantages-of-lda-alternatives" class="title-slide slide level2 center">
-<h2>Advantages of LDA (&amp; alternatives)</h2>
+<section id="lda-vs-clustering" class="title-slide slide level2 center">
+<h2>LDA <em>vs</em> clustering</h2>
 
 </section>
-<section id="advantages-of-lda-over-clustering" class="slide level3">
-<h3>Advantages of LDA over clustering</h3>
+<section id="lda-vs-clustering-1" class="slide level3">
+<h3>LDA <em>vs</em> clustering</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="images/LDA_vs_clustering_C.png"> <img data-src="images/LDA_vs_clustering_LDA.png"></p>
+</div><div class="column fragment" style="width:50%;">
+<p><img data-src="images/lebeer_PCoA.png" height="500"></p>
+<p>from <span class="citation" data-cites="isala">(<a href="#/references" role="doc-biblioref" onclick="">Lebeer et al. 2023</a>)</span>. Valencia is a vaginal microbiota “classifier” <span class="citation" data-cites="valencia">(<a href="#/references" role="doc-biblioref" onclick="">France et al. 2020</a>)</span> built from a large colated dataset.</p>
+</div>
+</div>
+</section>
+<section id="lda-vs-clustering-2" class="slide level3">
+<h3>LDA <em>vs</em> clustering</h3>
+<ul>
+<li><p>In longitudinal data, clustering can’t capture the <em>rate</em> of transitions</p></li>
+<li><p>Mixed memberships (topic models) are more powerful than categorical memberships (clustering) to find associations with responses.</p></li>
+<li><p>“Transition” clusters may group samples that are on very different trajectories.</p></li>
+</ul>
 </section>
 </section>
 <section>
@@ -1020,7 +1037,7 @@ Laura Symul <a href="https://orcid.org/0000-0001-9286-0590" class="quarto-title-
 </div>
 <div class="fragment">
 <p>The perplexity is expected to decrease as the number of topics increases, so we look for an elbow.</p>
-<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-41_48577dfc88313187c9d47401eda430e3">
+<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-42_6a3ec62ae9a91dfc58f3e75b4665a0b7">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>ks <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">15</span></span>
@@ -1033,9 +1050,9 @@ Laura Symul <a href="https://orcid.org/0000-0001-9286-0590" class="quarto-title-
 <span id="cb8-8"><a href="#cb8-8"></a>  mia<span class="sc">::</span><span class="fu">addLDA</span>(<span class="at">k =</span> ks, <span class="at">name =</span> <span class="st">"LDA_multiple_k"</span>, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">seed =</span> <span class="dv">9</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-42_8f3fd43286d930221057036a81e2a25b">
+<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-43_1c3e7139adc30968b5004443b56ec00b">
 <div class="cell-output-display">
-<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-42-1.png" width="960"></p>
+<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-43-1.png" width="960"></p>
 </div>
 </div>
 <p>Note that since LDA is not deterministic, the perplexity may vary between runs.</p>
@@ -1043,9 +1060,12 @@ Laura Symul <a href="https://orcid.org/0000-0001-9286-0590" class="quarto-title-
 </section>
 <section id="perplexity-based-cross-validation" class="slide level3">
 <h3>Perplexity-based cross-validation</h3>
-<blockquote>
-<p>TODO</p>
-</blockquote>
+<p>We can also choose <span class="math inline">\(K\)</span> based on the perplexity in cross-validation.</p>
+<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-47_f02235ee39a7f843a1f9bcafd6019e99">
+<div class="cell-output-display">
+<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-47-1.png" width="960"></p>
+</div>
+</div>
 </section>
 
 <section id="alignement-across-k" class="title-slide slide level2 center">
@@ -1074,16 +1094,16 @@ Laura Symul <a href="https://orcid.org/0000-0001-9286-0590" class="quarto-title-
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">ISALA (vag. swabs)</a></li><li><a href="#tabset-2-2">LLD (stool) - family level</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
-<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-45_e534f2639cff8c36b15fa333dbad8ddc">
+<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-50_022be1dfc7946e1da721d6fce3970ef0">
 <div class="cell-output-display">
-<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-45-1.png" width="960"></p>
+<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-50-1.png" width="960"></p>
 </div>
 </div>
 </div>
 <div id="tabset-2-2">
-<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-46_47f2f800ff01b9dfceb7f1f497a2d914">
+<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-51_9bb981106e32dece4268c3c2a74eadf8">
 <div class="cell-output-display">
-<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-46-1.png" width="960"></p>
+<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-51-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -1099,16 +1119,16 @@ Laura Symul <a href="https://orcid.org/0000-0001-9286-0590" class="quarto-title-
 <ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">ISALA (vag. swabs)</a></li><li><a href="#tabset-3-2">LLD (stool) - family level</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1">
-<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-47_4f0d1ac4a3181b9d39a923fe2d4ce5ff">
+<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-52_3ba8563577a9f27c8ac15d1e1692a7ce">
 <div class="cell-output-display">
-<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-47-1.png" width="960"></p>
+<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-52-1.png" width="960"></p>
 </div>
 </div>
 </div>
 <div id="tabset-3-2">
-<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-48_98c2922c0fe3ae5570b8dfb781889aa2">
+<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-53_9c21f39fbb6a4ae6b9d16bd059f4a154">
 <div class="cell-output-display">
-<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-48-1.png" width="960"></p>
+<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-53-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -1140,9 +1160,9 @@ Laura Symul <a href="https://orcid.org/0000-0001-9286-0590" class="quarto-title-
 </div>
 </div>
 <div class="fragment">
-<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-50_abab4de86737a6b16e07a3d29722f42d">
+<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-55_5d4ab33d214456ac18481c71277ccc85">
 <div class="cell-output-display">
-<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-50-1.png" width="864"></p>
+<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-55-1.png" width="864"></p>
 </div>
 </div>
 </div>
@@ -1160,9 +1180,9 @@ Laura Symul <a href="https://orcid.org/0000-0001-9286-0590" class="quarto-title-
 </div>
 </div>
 <div class="fragment">
-<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-52_97e60ea83c29e4214f68896db913f5cb">
+<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-57_7cd489b38b30c97868441e9d316d81e6">
 <div class="cell-output-display">
-<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-52-1.png" width="864"></p>
+<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-57-1.png" width="864"></p>
 </div>
 </div>
 </div>
@@ -1177,16 +1197,16 @@ Laura Symul <a href="https://orcid.org/0000-0001-9286-0590" class="quarto-title-
 <ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Isala (vag. swabs)</a></li><li><a href="#tabset-4-2">LLD (stool)</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1">
-<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-53_1d6a60e069f888ca8b25d496c5a18437">
+<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-58_c1d512be4d078cd93d5238399ff8199c">
 <div class="cell-output-display">
-<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-53-1.png" width="1152"></p>
+<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-58-1.png" width="1152"></p>
 </div>
 </div>
 </div>
 <div id="tabset-4-2">
-<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-54_f2097c593b159de55db3411c17f15d15">
+<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-59_8a95e61f8720d470f4adf9b100238dae">
 <div class="cell-output-display">
-<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-54-1.png" width="1152"></p>
+<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-59-1.png" width="1152"></p>
 </div>
 </div>
 </div>
@@ -1231,21 +1251,21 @@ Laura Symul <a href="https://orcid.org/0000-0001-9286-0590" class="quarto-title-
 <div id="tabset-5-1">
 <div class="columns">
 <div class="column fragment" style="width:33%;">
-<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-55_e2535fa5cd2d6dd29d2c10068e9fd315">
+<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-60_aa57472feaf95edf82395ed0c1b455d5">
 <div class="cell-output-display">
-<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-55-1.png" width="288"></p>
+<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-60-1.png" width="288"></p>
 </div>
 </div>
 </div><div class="column fragment" style="width:33%;">
-<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-56_ad20a424509292024b377c4d34abce20">
+<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-61_7ac775c77214992eedffdec67a7c5681">
 <div class="cell-output-display">
-<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-56-1.png" width="288"></p>
+<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-61-1.png" width="288"></p>
 </div>
 </div>
 </div><div class="column fragment" style="width:33%;">
-<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-57_aa4108ce6a06b56c624a492e382cedb5">
+<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-62_88e2de7f009784c3b3b15ec4fbf54a12">
 <div class="cell-output-display">
-<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-57-1.png" width="288"></p>
+<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-62-1.png" width="288"></p>
 </div>
 </div>
 </div>
@@ -1254,21 +1274,21 @@ Laura Symul <a href="https://orcid.org/0000-0001-9286-0590" class="quarto-title-
 <div id="tabset-5-2">
 <div class="columns">
 <div class="column fragment" style="width:33%;">
-<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-58_4ab3590a67d3f1939902cd6ca19a8dfa">
+<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-63_79bd8860e3c04144801c20aa984ed581">
 <div class="cell-output-display">
-<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-58-1.png" width="288"></p>
+<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-63-1.png" width="288"></p>
 </div>
 </div>
 </div><div class="column fragment" style="width:33%;">
-<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-59_f3c64944885bc70f006020ae1b1b7a63">
+<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-64_551cb37016b43f4a1319419b438b9554">
 <div class="cell-output-display">
-<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-59-1.png" width="288"></p>
+<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-64-1.png" width="288"></p>
 </div>
 </div>
 </div><div class="column fragment" style="width:33%;">
-<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-60_9a851de73d605d7816ac714822ebc7e5">
+<div class="cell" data-hash="LDA-for-microbiota_cache/revealjs/unnamed-chunk-65_9f4a2761f9840689402185128f04e582">
 <div class="cell-output-display">
-<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-60-1.png" width="288"></p>
+<p><img data-src="LDA-for-microbiota_files/figure-revealjs/unnamed-chunk-65-1.png" width="288"></p>
 </div>
 </div>
 </div>
@@ -1345,6 +1365,9 @@ Laura Symul <a href="https://orcid.org/0000-0001-9286-0590" class="quarto-title-
 <div id="ref-lda" class="csl-entry" role="listitem">
 Blei, David M., Andrew Y. Ng, and Michael I. Jordan. 2003. <span>“Latent Dirichlet Allocation.”</span> <em>J. Mach. Learn. Res.</em> 3 (null): 993–1022.
 </div>
+<div id="ref-valencia" class="csl-entry" role="listitem">
+France, Michael T., Bing Ma, Pawel Gajer, Sarah Brown, Michael S. Humphrys, Johanna B. Holm, L. Elaine Waetjen, Rebecca M. Brotman, and Jacques Ravel. 2020. <span>“<span>VALENCIA</span>: A Nearest Centroid Classification Method for Vaginal Microbial Communities Based on Composition.”</span> <em>Microbiome</em> 8 (1): 166. <a href="https://doi.org/10.1186/s40168-020-00934-6">https://doi.org/10.1186/s40168-020-00934-6</a>.
+</div>
 <div id="ref-alto" class="csl-entry" role="listitem">
 Fukuyama, Julia, Kris Sankaran, and Laura Symul. 2023. <span>“Multiscale Analysis of Count Data Through Topic Alignment.”</span> <em>Biostatistics</em> 24 (4): 1045–65. <a href="https://doi.org/10.1093/biostatistics/kxac018">https://doi.org/10.1093/biostatistics/kxac018</a>.
 </div>
@@ -1373,7 +1396,7 @@ Symul, Laura, Pratheepa Jeganathan, Elizabeth K. Costello, Michael France, Seth 
 <p>Questions?</p>
 <p><img src="https://avatars.githubusercontent.com/u/7518113?v=4" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://github.com/lasy/2425-LDA-for-Microbiota-UHasselt">github.com/lasy/2425-LDA-for-Microbiota-UHasselt</a></p>
+<p><a href="https://github.com/lasy/t-2425-Microbiota-UHasselt">github.com/lasy/t-2425-Microbiota-UHasselt</a></p>
 </div>
 </section></section>
     </div>
@@ -1412,7 +1435,7 @@ Symul, Laura, Pratheepa Jeganathan, Elizabeth K. Costello, Michael France, Seth 
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
 'chalkboard': {"buttons":true,"boardmarkerWidth":2,"theme":"chalkboard","chalkWidth":3},
-'multiplex': {"secret":"17339971831516734170","id":"209baa7ac82b3b13","url":"https://reveal-multiplex.glitch.me/"},
+'multiplex': {"secret":"17344247321897740252","id":"dc0367525792c7d6","url":"https://reveal-multiplex.glitch.me/"},
 'smaller': true,
  
         // Display controls in the bottom right corner

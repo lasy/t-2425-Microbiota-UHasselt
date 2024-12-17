@@ -113,6 +113,30 @@ numpages = {30}
 
 
 
+@article{valencia,
+	title = {{VALENCIA}: a nearest centroid classification method for vaginal microbial communities based on composition},
+	volume = {8},
+	issn = {2049-2618},
+	shorttitle = {{VALENCIA}},
+	url = {https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-020-00934-6},
+	doi = {10.1186/s40168-020-00934-6},
+	abstract = {Background: Taxonomic profiles of vaginal microbial communities can be sorted into a discrete number of categories termed community state types (CSTs). This approach is advantageous because collapsing a hyper-dimensional taxonomic profile into a single categorical variable enables efforts such as data exploration, epidemiological studies, and statistical modeling. Vaginal communities are typically assigned to CSTs based on the results of hierarchical clustering of the pairwise distances between samples. However, this approach is problematic because it complicates between-study comparisons and because the results are entirely dependent on the particular set of samples that were analyzed. We sought to standardize and advance the assignment of samples to CSTs.
+Results: We developed VALENCIA (VAginaL community state typE Nearest CentroId clAssifier), a nearest centroid-based tool which classifies samples based on their similarity to a set of reference centroids. The references were defined using a comprehensive set of 13,160 taxonomic profiles from 1975 women in the USA. This large dataset allowed us to comprehensively identify, define, and characterize vaginal CSTs common to reproductive age women and expand upon the CSTs that had been defined in previous studies. We validated the broad applicability of VALENCIA for the classification of vaginal microbial communities by using it to classify three test datasets which included reproductive age eastern and southern African women, adolescent girls, and a racially/ethnically and geographically diverse sample of postmenopausal women. VALENCIA performed well on all three datasets despite the substantial variations in sequencing strategies and bioinformatics pipelines, indicating its broad application to vaginal microbiota. We further describe the relationships between community characteristics (vaginal pH, Nugent score) and participant demographics (race, age) and the CSTs defined by VALENCIA.
+Conclusion: VALENCIA provides a much-needed solution for the robust and reproducible assignment of vaginal community state types. This will allow unbiased analysis of both small and large vaginal microbiota datasets, comparisons between datasets and meta-analyses that combine multiple datasets.},
+	language = {en},
+	number = {1},
+	urldate = {2021-08-02},
+	journal = {Microbiome},
+	author = {France, Michael T. and Ma, Bing and Gajer, Pawel and Brown, Sarah and Humphrys, Michael S. and Holm, Johanna B. and Waetjen, L. Elaine and Brotman, Rebecca M. and Ravel, Jacques},
+	month = dec,
+	year = {2020},
+	keywords = {CST},
+	pages = {166},
+	file = {France et al. - 2020 - VALENCIA a nearest centroid classification method.pdf:/Users/laurasymul/Zotero/storage/SSZMYE9C/France et al. - 2020 - VALENCIA a nearest centroid classification method.pdf:application/pdf},
+}
+
+
+
 @article{alto,
 	title = {Multiscale analysis of count data through topic alignment},
 	volume = {24},

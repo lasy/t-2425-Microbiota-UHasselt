@@ -10,6 +10,7 @@ forcats
 lubridate
 magrittr
 janitor
+patchwork
 matrixStats
 MatrixGenerics
 BiocGenerics
@@ -21,16 +22,15 @@ Biobase
 SummarizedExperiment
 ttservice
 tidySummarizedExperiment
+phyloseq
 microViz
-mia
+MultiAssayExperiment
 SingleCellExperiment
 XVector
 Biostrings
 TreeSummarizedExperiment
+mia
 curatedMetagenomicData
 topicmodels
 alto
 topicdoc
-MultiAssayExperiment
-patchwork
-phyloseq
