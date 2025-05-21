@@ -169,9 +169,9 @@ We'll use the data aggregated at the Genus level (but Species level for *Lactoba
 
 github_url <- "https://raw.githubusercontent.com/LebeerLab/Citizen-science-map-of-the-vaginal-microbiome/refs/heads/main/data/isala/"
 
-isala_counts_raw <- read_tsv(file = str_c(github_url, "counts.tsv"))
-isala_tax_raw <- read_tsv(file = str_c(github_url, "taxa_spec.tsv"))
-isala_metadata_raw <- read_tsv(file = str_c(github_url, "metadata.tsv"))
+isala_counts_raw <- readr::read_tsv(file = str_c(github_url, "counts.tsv"))
+isala_tax_raw <- readr::read_tsv(file = str_c(github_url, "taxa_spec.tsv"))
+isala_metadata_raw <- readr::read_tsv(file = str_c(github_url, "metadata.tsv"))
 
 rm(github_url)
 
